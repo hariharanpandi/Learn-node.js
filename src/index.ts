@@ -9,7 +9,7 @@ const port:any = process.env.PORT || 8000;
 
 connectToDB.sync()
     .then((db) => {
-        console.log("MongoDB connected...!");
+        console.log("MySQL connected...!");
     })
     .catch((error:any) => {
         console.log(error);
