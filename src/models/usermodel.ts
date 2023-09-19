@@ -1,23 +1,27 @@
-import mongoose from "mongoose";
+import { DataTypes } from "sequelize";
+import connectToDB from "../database/mysql";
 
-const UsersSchema = new mongoose.Schema({
-    _cls: {
-        type: String
-    },
+const UsersSchema =  connectToDB.define('user',{
+    _id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
     email: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     first_name: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
     last_name: {
-        type: String
+        type: DataTypes.STRING
     },
     user_img: {
-        type: String
+        type: DataTypes.STRING
     }
-}, { collection: 'owner' });
+});
 
-export const User = mongoose.model('User', UsersSchema);
+export default UsersSchema;
