@@ -1,11 +1,11 @@
 import UsersSchema from "../models/usermodel";
-
+import connectToDB from "../database/mysql";
 export default class UserService {
-    async getAllUsers() {
-        return UsersSchema.findAll();
+    async registerUser() {
+        return await connectToDB.query('SELECT * FROM users');
     }
 
-    async registerUser() {
+    async getAllUsers() {
         return UsersSchema.create({
             first_name: 'Hariharan',
             last_name: 'Pandi',

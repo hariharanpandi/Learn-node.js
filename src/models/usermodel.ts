@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import connectToDB from "../database/mysql";
 
-const UsersSchema =  connectToDB.define('user',{
-    _id: {
+const UsersSchema =  connectToDB.define('users',{
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -19,7 +19,7 @@ const UsersSchema =  connectToDB.define('user',{
     last_name: {
         type: DataTypes.STRING
     },
-    user_img: {
+    image_url: {
         type: DataTypes.STRING
     }
 });
